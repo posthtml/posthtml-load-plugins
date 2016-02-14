@@ -5,7 +5,7 @@
 ```bash
 (sudo) npm i -D posthtml-load-plugins
 ```
-[![npm](https://badge.fury.io/js/posthtml-load-plugins.svg)](https://badge.fury.io/js/posthtml-load-plugins) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-load.plugins.svg)](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins)
+[![npm](https://badge.fury.io/js/posthtml-load-plugins.svg)](https://badge.fury.io/js/posthtml-load-plugins) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg)](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins)
 
 ## Usage
 
