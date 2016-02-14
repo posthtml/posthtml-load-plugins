@@ -9,6 +9,6 @@ module.exports = {
     encoding: 'utf-8'
   },
   styleToFile: {
-    path: './test/dist/style.css'
+    path: './dist/style.css'
   }
 }

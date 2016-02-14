@@ -23,18 +23,18 @@ exports = module.exports = function (options) {
       return `${namespace}`
     }
 
-    function defaults (plugin) {
-      if (pkg.posthtml.plugin) {
-        return pkg.posthtml.plugin
-      } else {
-        return {}
-      }
-    }
+    // function defaults (plugin) {
+    //   if (pkg.posthtml.plugin) {
+    //     return pkg.posthtml.plugin
+    //   } else {
+    //     return {}
+    //   }
+    // }
 
     return {
       plugin: require(`${plugin}`),
       namespace: namespace(plugin),
-      defaults: defaults(options)
+      defaults: {}
     }
   }
 
@@ -54,7 +54,6 @@ exports = module.exports = function (options) {
 
   var plugins = []
 
-  // each plugin
   processors.forEach((processor) => {
     var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options
     var processorOptions = {}
@@ -71,6 +70,6 @@ exports = module.exports = function (options) {
       plugins.push(processor.plugin(processorOptions))
     }
   })
-  console.log(plugins)
+
   return plugins
 }
