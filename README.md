@@ -5,13 +5,21 @@
 ```bash
 (sudo) npm i -D posthtml-load-plugins
 ```
+[![npm](https://badge.fury.io/js/posthtml-load-plugins.svg)](https://badge.fury.io/js/posthtml-load-plugins) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-load.plugins.svg)](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins)
 
 ## Usage
 
 Plugins will be loaded directly from your projects ***package.json*** file.
 Install them as usual with ``` npm i -S ``` or ``` npm i -D ```.
-After installing your plugins there a two ways to declare your plugin options.
-You can either set your options directly in your package.json or create a separated ***[name].[ext]*** file, where ***[name]*** is any name you like and ***[ext]*** should be either be ``` .js ``` or ``` .json ```. For well formed options file see below.
+
+[PostHTML Plugins](https://maltsev.github.io/posthtml-plugins/)
+
+After installing your plugins there a three ways to declare your plugin options.
+
+- Set options directly as arguments.
+- Set options in your ***package.json***.
+- Create a separated ***[name].[ext]*** file, where ***[name]*** is any name you like and ***[ext]*** should be either ``` .js ``` or ``` .json ```.
+For an example of well formed options file see below.
 
 ## Options
 
@@ -87,7 +95,7 @@ module.exports = {
 ## Usage
 For general usage and build process integration see [PostHTML Docs](https://github.com/posthtml/posthtml#usage)
 
-### Example using Node API
+### Examples using Node API
 #### Default
 
 ```js
@@ -96,7 +104,7 @@ For general usage and build process integration see [PostHTML Docs](https://gith
 const fs = require('fs')
 
 const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')(/* options */)
+const plugins = require('posthtml-load-plugins')()
 
 let html = fs.readFileSync('./index.html', 'utf-8')
 

@@ -4,7 +4,7 @@ const fs = require('fs')
 
 var posthtml = require('posthtml')
 
-var plugins = require('../index')('posthtml.js')
+var plugins = require('../index')()
 
 var html = fs.readFileSync('./index.html', 'utf-8')
 

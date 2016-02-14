@@ -8,7 +8,7 @@ exports = module.exports = function (options) {
   if (typeof options === 'string') {
     options = require(`${process.cwd() + '/' + options}`)
   } else {
-    options = options || {}
+    options = options || require(`${process.cwd() + '/package.json'}`).posthtml || {}
   }
 
   var pkg = require(`${process.cwd() + '/package.json'}`)
@@ -23,14 +23,6 @@ exports = module.exports = function (options) {
       return `${namespace}`
     }
 
-    // function defaults (plugin) {
-    //   if (pkg.posthtml.plugin) {
-    //     return pkg.posthtml.plugin
-    //   } else {
-    //     return {}
-    //   }
-    // }
-
     return {
       plugin: require(`${plugin}`),
       namespace: namespace(plugin),
@@ -39,16 +31,32 @@ exports = module.exports = function (options) {
   }
 
   function isPlugin (element, index, array) {
-    return element.match(/posthtml/)
+    return element.match(/posthtml-[\w]/)
+  }
+
+  function isInclude (element, index, array) {
+    return element.match(/posthtml-[include]/)
+  }
+
+  function notInclude (element, index, array) {
+    return element.match(/posthtml-[^include]/)
   }
 
   var processors = []
 
-  Object.keys(pkg.dependencies).filter(isPlugin).forEach((plugin) => {
+  Object.keys(pkg.dependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+    processors.unshift(new Processor(plugin))
+  })
+
+  Object.keys(pkg.dependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
     processors.push(new Processor(plugin))
   })
 
-  Object.keys(pkg.devDependencies).filter(isPlugin).forEach((plugin) => {
+  Object.keys(pkg.devDependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+    processors.unshift(new Processor(plugin))
+  })
+
+  Object.keys(pkg.devDependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
     processors.push(new Processor(plugin))
   })
 

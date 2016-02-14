@@ -1,6 +1,6 @@
 {
   "name": "postcss-load-plugins",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "engines": {
     "node": ">= 4"
   },
@@ -16,5 +16,5 @@
     "email": "michael.ciniawsky@gmail.com"
   },
   "license": "MIT",
-  "description": "Load Plugins for PostHTML"
+  "description": "Autoload Plugins for PostHTML"
 }
