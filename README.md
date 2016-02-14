@@ -85,7 +85,7 @@ module.exports = {
 ```
 
 ## Usage
-For general usage and build process integration see [PostTML Docs](https://github.com/posthtml/posthtml#usage)
+For general usage and build process integration see [PostHTML Docs](https://github.com/posthtml/posthtml#usage)
 
 ### Example using Node API
 #### Default
@@ -113,7 +113,7 @@ posthtml(plugins)
 const fs = require('fs')
 
 const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')('posthtml.json')
+const plugins = require('posthtml-load-plugins')('posthtml.(js|json)')
 
 let html = fs.readFileSync('./index.html', 'utf-8')
 
