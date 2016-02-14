@@ -9,8 +9,7 @@
 ## Usage
 
 Plugins will be loaded directly from your projects package.json file.
-Install them as usual with ``` npm i -S ``` or ``` npm i -D ```
-
+Install them as usual with ``` npm i -S ``` or ``` npm i -D ```.
 After installing your plugins there a two ways to declare your plugin options.
 You can either set your options directly in your package.json or create a separated [name].json file, where [name] is any name you like. For well formed options file see below.
 
@@ -31,7 +30,7 @@ You can either set your options directly in your package.json or create a separa
 
  "posthtml": {
    "bem": {
-     "elemPrefix": "_",
+     "elemPrefix": "__",
      "modPrefix": "-",
      "modDlmtr": "--"
    },
@@ -52,7 +51,7 @@ You can either set your options directly in your package.json or create a separa
 ```json
 {
   "bem": {
-    "elemPrefix": "_",
+    "elemPrefix": "__",
     "modPrefix": "-",
     "modDlmtr": "--"
   },
@@ -87,7 +86,7 @@ posthtml(plugins)
   .then(result => console.log(result.html))
 ```
 
-#### Separate options file (e.g posthtml.json)
+#### Options file (e.g posthtml.json)
 
 ```js
 'use strict'
