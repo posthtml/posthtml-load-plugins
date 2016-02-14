@@ -1,0 +1,7 @@
+{
+  "bem": {
+    "elemPrefix": "_",
+    "modPrefix": "-",
+    "modDlmtr": "--"
+  }
+}

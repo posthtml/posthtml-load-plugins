@@ -1,0 +1,31 @@
+{
+  "name": "postcss-load-plugins-example",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">= 4"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "posthtml-bem": "^0.2.2",
+    "posthtml-each": "^1.0.1",
+    "posthtml-include": "^1.0.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "http:/github.com/michael-ciniawsky/posthtml-load-plugins"
+  },
+  "author": {
+    "name": "Michael Ciniawky",
+    "email": "michael.ciniawsky@gmail.com"
+  },
+  "license": "MIT",
+  "description": "Load Plugins for PostHTML",
+  "posthtml": {
+    "bem": {
+      "elemPrefix": "_",
+      "modPrefix": "-",
+      "modDlmtr": "--"
+    }
+  }
+}
