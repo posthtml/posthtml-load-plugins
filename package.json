@@ -1,20 +1,24 @@
 {
-  "name": "postcss-load-plugins",
-  "version": "0.8.0",
+  "name": "posthtml-load-plugins",
+  "version": "0.8.1",
+  "description": "Autoload Plugins for PostHTML",
   "engines": {
-    "node": ">= 4"
+    "node": ">=4"
   },
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "http:/github.com/michael-ciniawsky/posthtml-load-plugins"
-  },
   "author": {
     "name": "Michael Ciniawky",
     "email": "michael.ciniawsky@gmail.com"
   },
-  "license": "MIT",
-  "description": "Autoload Plugins for PostHTML"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-ciniawsky/posthtml-load-plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michael-ciniawsky/posthtml-load-plugins/issues"
+  },
+  "homepage": "https://github.com/michael-ciniawsky/posthtml-load-plugins#readme",
+  "license": "MIT"
 }
