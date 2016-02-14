@@ -1,8 +1,8 @@
 {
-  "name": "postcss-load-plugins-example",
-  "version": "0.1.0",
+  "name": "posthtml-load-plugins-example",
+  "version": "0.8.2",
   "engines": {
-    "node": ">= 4"
+    "node": ">=4"
   },
   "main": "index.js",
   "dependencies": {
@@ -21,7 +21,7 @@
     "email": "michael.ciniawsky@gmail.com"
   },
   "license": "MIT",
-  "description": "Load Plugins for PostHTML",
+  "description": "Autoload Plugins for PostHTML",
   "posthtml": {
     "bem": {
       "elemPrefix": "__",
