@@ -23,9 +23,16 @@
   "description": "Load Plugins for PostHTML",
   "posthtml": {
     "bem": {
-      "elemPrefix": "_",
+      "elemPrefix": "__",
       "modPrefix": "-",
       "modDlmtr": "--"
+    },
+    "include": {
+      "root": "./",
+      "encoding": "utf-8"
+    },
+    "styleToFile": {
+      "path": "./test/dist/style.css"
     }
   }
 }
