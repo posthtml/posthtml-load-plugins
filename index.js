@@ -6,18 +6,13 @@
 const path = require('path');
 
 exports = module.exports = function (options) {
-	console.log(options);
-	console.log(path.dirname(__dirname));
-	console.log(process.cwd());
-	console.log(path.join(process.cwd(), 'package.json'));
+	var pkg = require(path.join(process.cwd(), 'package.json'));
 
 	if (typeof options === 'string') {
-		options = require(`${process.cwd() + '/' + options}`);
+		options = require(path.join(process.cwd(), options));
 	} else {
-		options = options || require(`${process.cwd() + '/package.json'}`).posthtml || {};
+		options = options || pkg.posthtml || {};
 	}
-
-	var pkg = require(`${process.cwd() + '/package.json'}`);
 
 	function Processor(plugin) {
 		function namespace(plugin) {
