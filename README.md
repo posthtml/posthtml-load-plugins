@@ -1,12 +1,14 @@
-# Autoload plugins for [PostHTML](https://github.com/posthtml/posthtml)
+[![npm][npm]][npm-1]
+[![dependencies][deps]][deps-1]
+[![XO code style][style]][style-1]
+
+# Autoload Plugins for [PostHTML](https://github.com/posthtml/posthtml)
 
 ## Install
 
 ```bash
 (sudo) npm i -D posthtml-load-plugins
 ```
-[![npm](https://badge.fury.io/js/posthtml-load-plugins.svg)](https://badge.fury.io/js/posthtml-load-plugins) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg)](https://david-dm.org/michael-ciniawsky/posthtml-load-plugins)
-
 ## Usage
 
 Plugins will be loaded directly from your projects ***package.json*** file.
@@ -35,7 +37,6 @@ For an example of well formed options file see below.
  "devDependencies": {
    "posthtml-style-to-file": "^0.1.1"
  },
-
  "posthtml": {
    "bem": {
      "elemPrefix": "__",
@@ -49,7 +50,6 @@ For an example of well formed options file see below.
    "styleToFile": {
      "path": "./dist/style.css"
    }
-
  }
 }
 ```
@@ -106,7 +106,7 @@ const fs = require('fs')
 const posthtml = require('posthtml')
 const plugins = require('posthtml-load-plugins')()
 
-let html = fs.readFileSync('./index.html', 'utf-8')
+let html = fs.readFileSync('./index.html', 'utf8')
 
 posthtml(plugins)
   .process(html)
@@ -123,9 +123,25 @@ const fs = require('fs')
 const posthtml = require('posthtml')
 const plugins = require('posthtml-load-plugins')('posthtml.(js|json)')
 
-let html = fs.readFileSync('./index.html', 'utf-8')
+let html = fs.readFileSync('./index.html', 'utf8')
 
 posthtml(plugins)
   .process(html)
   .then(result => console.log(result.html))
 ```
+## Contributors
+
+- [GitScrum](https://github.com/GitScrum)
+
+## License
+
+MIT
+
+[npm]:  https://badge.fury.io/js/posthtml-load-plugins.svg
+[npm-1]: https://badge.fury.io/js/posthtml-load-plugins
+
+[deps]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg
+[deps-1]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins
+
+[style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
+[style-1]: https://github.com/michael-ciniawsky/posthtml-load-plugins
