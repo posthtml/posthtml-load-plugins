@@ -5,10 +5,10 @@
     "modDlmtr": "--"
   },
   "include": {
-    "root": "./",
+    "root": "test/",
     "encoding": "utf-8"
   },
   "styleToFile": {
-    "path": "./dist/style.css"
+    "path": "test/dist/style.css"
   }
 }

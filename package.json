@@ -6,8 +6,18 @@
     "node": ">=4"
   },
   "main": "index.js",
+  "scripts": {
+    "test": "xo"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "posthtml": "^0.8.3",
+    "posthtml-bem": "^0.2.2",
+    "posthtml-each": "^1.0.1",
+    "posthtml-include": "^1.0.2",
+    "posthtml-style-to-file": "^0.1.1",
+    "xo": "^0.13.0"
+  },
   "author": {
     "name": "Michael Ciniawky",
     "email": "michael.ciniawsky@gmail.com"
