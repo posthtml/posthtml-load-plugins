@@ -2,82 +2,88 @@
 // #POST - LOAD PLUGINS
 // ------------------------------------
 
-'use strict'
+'use strict';
+const path = require('path');
 
 exports = module.exports = function (options) {
-  if (typeof options === 'string') {
-    options = require(`${process.cwd() + '/' + options}`)
-  } else {
-    options = options || require(`${process.cwd() + '/package.json'}`).posthtml || {}
-  }
+	console.log(options);
+	console.log(path.dirname(__dirname));
+	console.log(process.cwd());
+	console.log(path.join(process.cwd(), 'package.json'));
 
-  var pkg = require(`${process.cwd() + '/package.json'}`)
+	if (typeof options === 'string') {
+		options = require(`${process.cwd() + '/' + options}`);
+	} else {
+		options = options || require(`${process.cwd() + '/package.json'}`).posthtml || {};
+	}
 
-  function Processor (plugin, options) {
-    function namespace (plugin) {
-      let namespace = plugin
-        .slice(9)
-        .replace(/-(\w)/g, (match) => {
-          return match.replace(/-/, '').toUpperCase()
-        })
-      return `${namespace}`
-    }
+	var pkg = require(`${process.cwd() + '/package.json'}`);
 
-    return {
-      plugin: require(`${plugin}`),
-      namespace: namespace(plugin),
-      defaults: {}
-    }
-  }
+	function Processor(plugin) {
+		function namespace(plugin) {
+			let namespace = plugin
+			.slice(9)
+			.replace(/-(\w)/g, (match) => {
+				return match.replace(/-/, '').toUpperCase();
+			});
+			return `${namespace}`;
+		}
 
-  function isPlugin (element, index, array) {
-    return element.match(/posthtml-[\w]/)
-  }
+		return {
+			plugin: require(`${plugin}`),
+			namespace: namespace(plugin),
+			defaults: {}
+		};
+	}
 
-  function isInclude (element, index, array) {
-    return element.match(/posthtml-[include]/)
-  }
+	function isPlugin(element) {
+		return element.match(/posthtml-[\w]/);
+	}
 
-  function notInclude (element, index, array) {
-    return element.match(/posthtml-[^include]/)
-  }
+	function isInclude(element) {
+		return element.match(/posthtml-[include]/);
+	}
 
-  var processors = []
+	function notInclude(element) {
+		return element.match(/posthtml-[^include]/);
+	}
 
-  Object.keys(pkg.dependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-    processors.unshift(new Processor(plugin))
-  })
+	var processors = [];
 
-  Object.keys(pkg.dependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-    processors.push(new Processor(plugin))
-  })
+	Object.keys(pkg.dependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+		processors.unshift(new Processor(plugin));
+	});
 
-  Object.keys(pkg.devDependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-    processors.unshift(new Processor(plugin))
-  })
+	Object.keys(pkg.dependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
+		processors.push(new Processor(plugin));
+	});
 
-  Object.keys(pkg.devDependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-    processors.push(new Processor(plugin))
-  })
+	Object.keys(pkg.devDependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+		processors.unshift(new Processor(plugin));
+	});
 
-  var plugins = []
+	Object.keys(pkg.devDependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
+		processors.push(new Processor(plugin));
+	});
 
-  processors.forEach((processor) => {
-    var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options
-    var processorOptions = {}
+	var plugins = [];
 
-    Object.keys(processor.defaults).forEach((key) => {
-      processorOptions[key] = processor.defaults[key]
-    })
+	processors.forEach((processor) => {
+		var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options;
+		var processorOptions = {};
 
-    Object.keys(namespaceOptions).forEach((key) => {
-      processorOptions[key] = namespaceOptions[key]
-    })
+		Object.keys(processor.defaults).forEach((key) => {
+			processorOptions[key] = processor.defaults[key];
+		});
 
-    if (namespaceOptions && !processorOptions.disable) {
-      plugins.push(processor.plugin(processorOptions))
-    }
-  })
+		Object.keys(namespaceOptions).forEach((key) => {
+			processorOptions[key] = namespaceOptions[key];
+		});
 
-  return plugins
-}
+		if (namespaceOptions && !processorOptions.disable) {
+			plugins.push(processor.plugin(processorOptions));
+		}
+	});
+
+	return plugins;
+};
