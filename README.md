@@ -131,7 +131,9 @@ posthtml(plugins)
 ```
 ## Contributors
 
-- [GitScrum](https://github.com/GitScrum)
+[![GitScrum](https://avatars.githubusercontent.com/u/2789192?s=130)](https://github.com/GitScrum) |
+---|
+[Ivan Demidov](https://github.com/GitScrum) |
 
 ## License
 
