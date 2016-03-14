@@ -43,21 +43,25 @@ exports = module.exports = function (options) {
 		return element.match(/posthtml-[^include]/);
 	}
 
+	function isNotMe(element) {
+		return element.match(/posthtml-[^load-plugins]/);
+	}
+
 	var processors = [];
 
-	Object.keys(pkg.dependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
 		processors.unshift(new Processor(plugin));
 	});
 
-	Object.keys(pkg.dependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
+	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
 		processors.push(new Processor(plugin));
 	});
 
-	Object.keys(pkg.devDependencies).filter(isPlugin).filter(isInclude).forEach((plugin) => {
+	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
 		processors.unshift(new Processor(plugin));
 	});
 
-	Object.keys(pkg.devDependencies).filter(isPlugin).filter(notInclude).forEach((plugin) => {
+	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
 		processors.push(new Processor(plugin));
 	});
 
