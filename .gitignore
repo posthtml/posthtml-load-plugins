@@ -5,3 +5,6 @@
 # NODEJS
 node_modules
 npm-debug.log
+
+# Sublime
+*.sublime*
