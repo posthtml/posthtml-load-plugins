@@ -6,7 +6,7 @@
 const path = require('path');
 
 exports = module.exports = function (options) {
-	var pkg = require(path.join(process.env.PWD, 'package.json'));
+	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
 
 	if (typeof options === 'string') {
 		options = require(path.join(process.cwd(), options));
