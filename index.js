@@ -35,35 +35,24 @@ exports = module.exports = function (options) {
 		return element.match(/posthtml-[\w]/);
 	}
 
-	function isInclude(element) {
-		return element.match(/posthtml-[include]/);
-	}
-
-	function notInclude(element) {
-		return element.match(/posthtml-[^include]/);
-	}
-
 	function isNotMe(element) {
-		return element.match(/posthtml-[^load-plugins]/);
+		return /posthtml-(?!load-plugins)/.test(element);
 	}
 
 	var processors = [];
 
-	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-		processors.unshift(new Processor(plugin));
-	});
-
-	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-		processors.push(new Processor(plugin));
-	});
-
-	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-		processors.unshift(new Processor(plugin));
-	});
-
-	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-		processors.push(new Processor(plugin));
-	});
+	var plug = Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
+		.sort(function (a, b) {
+			if (/posthtml-include/.test(b)) {
+				return 1;
+			}
+			return 0;
+		})
+		.filter(isPlugin)
+		.filter(isNotMe)
+		.forEach(function (plugin) {
+			processors.push(new Processor(plugin));
+		});
 
 	var plugins = [];
 
