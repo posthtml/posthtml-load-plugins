@@ -5,7 +5,7 @@
 'use strict';
 var path = require('path');
 
-exports = module.exports = function (options) {
+module.exports = function (options) {
 	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
 
 	if (typeof options === 'string') {
@@ -59,11 +59,11 @@ exports = module.exports = function (options) {
 		var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options;
 		var processorOptions = {};
 
-		Object.keys(processor.defaults).forEach((key) => {
+		Object.keys(processor.defaults).forEach(function (key) {
 			processorOptions[key] = processor.defaults[key];
 		});
 
-		Object.keys(namespaceOptions).forEach((key) => {
+		Object.keys(namespaceOptions).forEach(function (key) {
 			processorOptions[key] = namespaceOptions[key];
 		});
 
