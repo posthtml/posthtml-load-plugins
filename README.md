@@ -1,6 +1,7 @@
 [![npm][npm]][npm-1]
 [![dependencies][deps]][deps-1]
 [![XO code style][style]][style-1]
+[![Trasiv Build Status][travis-image]][travis-url]
 
 # Autoload Plugins for [PostHTML](https://github.com/posthtml/posthtml)
 
@@ -147,3 +148,6 @@ MIT
 
 [style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
 [style-1]: https://github.com/michael-ciniawsky/posthtml-load-plugins
+
+[travis-url]: https://travis-ci.org/michael-ciniawsky/posthtml-load-plugins
+[travis-image]: http://img.shields.io/travis/michael-ciniawsky/posthtml-load-plugins.svg
