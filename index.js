@@ -16,12 +16,11 @@ exports = module.exports = function (options) {
 
 	function Processor(plugin) {
 		function namespace(plugin) {
-			var namespace = plugin
-			.slice(9)
-			.replace(/-(\w)/g, (match) => {
-				return match.replace(/-/, '').toUpperCase();
-			});
-			return `${namespace}`;
+			return plugin
+				.slice(9)
+				.replace(/[_.-](\w|$)/g, function (_,x) {
+				  return x.toUpperCase();
+				});
 		}
 
 		return {
