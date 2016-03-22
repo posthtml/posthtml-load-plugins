@@ -5,37 +5,37 @@
 'use strict';
 var path = require('path');
 
-module.exports = function (options) {
+function Processor(plugin) {
+	function namespace(plugin) {
+		return plugin
+			.slice(9)
+			.replace(/[_.-](\w|$)/g, function (_, x) {
+				return x.toUpperCase();
+			});
+	}
+
+	return {
+		plugin: require(plugin),
+		namespace: namespace(plugin),
+		defaults: {}
+	};
+}
+
+function isPlugin(element) {
+	return element.match(/posthtml-[\w]/);
+}
+
+function isNotMe(element) {
+	return /posthtml-(?!load-plugins)/.test(element);
+}
+
+exports = module.exports = function (options) {
 	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
 
 	if (typeof options === 'string') {
 		options = require(path.join(process.cwd(), options));
 	} else {
 		options = options || pkg.posthtml || {};
-	}
-
-	function Processor(plugin) {
-		function namespace(plugin) {
-			return plugin
-				.slice(9)
-				.replace(/[_.-](\w|$)/g, function (_, x) {
-					return x.toUpperCase();
-				});
-		}
-
-		return {
-			plugin: require(plugin),
-			namespace: namespace(plugin),
-			defaults: {}
-		};
-	}
-
-	function isPlugin(element) {
-		return element.match(/posthtml-[\w]/);
-	}
-
-	function isNotMe(element) {
-		return /posthtml-(?!load-plugins)/.test(element);
 	}
 
 	var processors = [];
@@ -55,7 +55,7 @@ module.exports = function (options) {
 
 	var plugins = [];
 
-	processors.forEach((processor) => {
+	processors.forEach(function (processor) {
 		var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options;
 		var processorOptions = {};
 

@@ -8,3 +8,6 @@ npm-debug.log
 
 # Sublime
 *.sublime*
+
+# Nyc
+.nyc_output/
