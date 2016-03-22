@@ -18,8 +18,8 @@ module.exports = function (options) {
 		function namespace(plugin) {
 			return plugin
 				.slice(9)
-				.replace(/[_.-](\w|$)/g, function (_,x) {
-				  return x.toUpperCase();
+				.replace(/[_.-](\w|$)/g, function (_, x) {
+					return x.toUpperCase();
 				});
 		}
 
@@ -40,7 +40,7 @@ module.exports = function (options) {
 
 	var processors = [];
 
-	var plug = Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
+	Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
 		.sort(function (a, b) {
 			if (/posthtml-include/.test(b)) {
 				return 1;
