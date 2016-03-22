@@ -3,7 +3,7 @@
 // ------------------------------------
 
 'use strict';
-const path = require('path');
+var path = require('path');
 
 exports = module.exports = function (options) {
 	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
@@ -16,12 +16,11 @@ exports = module.exports = function (options) {
 
 	function Processor(plugin) {
 		function namespace(plugin) {
-			let namespace = plugin
-			.slice(9)
-			.replace(/-(\w)/g, (match) => {
-				return match.replace(/-/, '').toUpperCase();
-			});
-			return `${namespace}`;
+			return plugin
+				.slice(9)
+				.replace(/[_.-](\w|$)/g, function (_,x) {
+				  return x.toUpperCase();
+				});
 		}
 
 		return {
@@ -35,35 +34,24 @@ exports = module.exports = function (options) {
 		return element.match(/posthtml-[\w]/);
 	}
 
-	function isInclude(element) {
-		return element.match(/posthtml-[include]/);
-	}
-
-	function notInclude(element) {
-		return element.match(/posthtml-[^include]/);
-	}
-
 	function isNotMe(element) {
-		return element.match(/posthtml-[^load-plugins]/);
+		return /posthtml-(?!load-plugins)/.test(element);
 	}
 
 	var processors = [];
 
-	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-		processors.unshift(new Processor(plugin));
-	});
-
-	Object.keys(pkg.dependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-		processors.push(new Processor(plugin));
-	});
-
-	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(isInclude).forEach((plugin) => {
-		processors.unshift(new Processor(plugin));
-	});
-
-	Object.keys(pkg.devDependencies).filter(isNotMe).filter(isPlugin).filter(notInclude).forEach((plugin) => {
-		processors.push(new Processor(plugin));
-	});
+	var plug = Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
+		.sort(function (a, b) {
+			if (/posthtml-include/.test(b)) {
+				return 1;
+			}
+			return 0;
+		})
+		.filter(isPlugin)
+		.filter(isNotMe)
+		.forEach(function (plugin) {
+			processors.push(new Processor(plugin));
+		});
 
 	var plugins = [];
 
