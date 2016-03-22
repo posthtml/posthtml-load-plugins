@@ -24,7 +24,7 @@ exports = module.exports = function (options) {
 		}
 
 		return {
-			plugin: require(`${plugin}`),
+			plugin: require(plugin),
 			namespace: namespace(plugin),
 			defaults: {}
 		};
