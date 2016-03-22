@@ -9,7 +9,9 @@
   "scripts": {
     "test": "xo && nyc ava"
   },
-  "dependencies": {},
+  "dependencies": {
+    "app-root-path": "^1.0.0"
+  },
   "devDependencies": {
     "ava": "^0.13.0",
     "del": "^2.2.0",

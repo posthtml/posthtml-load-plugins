@@ -4,6 +4,7 @@
 
 'use strict';
 var path = require('path');
+var appRoot = require('app-root-path');
 
 function Processor(plugin) {
 	function namespace(plugin) {
@@ -30,7 +31,7 @@ function isNotMe(element) {
 }
 
 exports = module.exports = function (options) {
-	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
+	var pkg = require(appRoot + '/package.json');
 
 	if (typeof options === 'string') {
 		options = require(path.join(process.cwd(), options));
