@@ -3,7 +3,7 @@
 // ------------------------------------
 
 'use strict';
-const path = require('path');
+var path = require('path');
 
 exports = module.exports = function (options) {
 	var pkg = require(path.join((process.env.PWD || path.dirname(require.main.filename)), 'package.json'));
@@ -16,7 +16,7 @@ exports = module.exports = function (options) {
 
 	function Processor(plugin) {
 		function namespace(plugin) {
-			let namespace = plugin
+			var namespace = plugin
 			.slice(9)
 			.replace(/-(\w)/g, (match) => {
 				return match.replace(/-/, '').toUpperCase();
