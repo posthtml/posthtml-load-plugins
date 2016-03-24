@@ -1,7 +1,8 @@
-[![npm][npm]][npm-1]
-[![dependencies][deps]][deps-1]
-[![XO code style][style]][style-1]
-[![Trasiv Build Status][travis-image]][travis-url]
+[![npm][npm]][npm-url]
+[![Dependencies][deps]][deps-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][cover-image]][cover-url]
+[![XO Code Style][style]][style-url]
 
 # Autoload Plugins for [PostHTML](https://github.com/posthtml/posthtml)
 
@@ -141,13 +142,16 @@ posthtml(plugins)
 MIT
 
 [npm]:  https://badge.fury.io/js/posthtml-load-plugins.svg
-[npm-1]: https://badge.fury.io/js/posthtml-load-plugins
+[npm-url]: https://badge.fury.io/js/posthtml-load-plugins
 
 [deps]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg
-[deps-1]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins
+[deps-url]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins
 
 [style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[style-1]: https://github.com/michael-ciniawsky/posthtml-load-plugins
+[style-url]: https://github.com/michael-ciniawsky/posthtml-load-plugins
 
 [travis-url]: https://travis-ci.org/michael-ciniawsky/posthtml-load-plugins
 [travis-image]: http://img.shields.io/travis/michael-ciniawsky/posthtml-load-plugins.svg
+
+[cover-image]:https://coveralls.io/repos/github/michael-ciniawsky/posthtml-load-plugins/badge.svg?branch=master
+[cover-url]:https://coveralls.io/github/michael-ciniawsky/posthtml-load-plugins?branch=master
