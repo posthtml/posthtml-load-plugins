@@ -1,3 +1,4 @@
+
 [![npm version][npm]][npm-url]
 [![Dependencies][deps]][deps-url]
 [![Build Status][travis-image]][travis-url]
@@ -13,7 +14,7 @@
 ```
 ## Usage
 
-Plugins will be loaded directly from your projects ***package.json*** file or local installed plugins.
+Plugins will be loaded directly from your projects ***package.json*** file or local installed plugins.  
 Install them as usual with ``` npm i -S ``` or ``` npm i -D ``` or ```npm i```.
 
 [PostHTML Plugins](https://maltsev.github.io/posthtml-plugins/)
