@@ -5,16 +5,17 @@
 'use strict';
 var path = require('path');
 var appRoot = require('app-root-path');
+var pathExists = require('path-exists');
+
+function namespace(plugin) {
+	return plugin
+		.slice(9)
+		.replace(/[_.-](\w|$)/g, function (_, x) {
+			return x.toUpperCase();
+		});
+}
 
 function Processor(plugin) {
-	function namespace(plugin) {
-		return plugin
-			.slice(9)
-			.replace(/[_.-](\w|$)/g, function (_, x) {
-				return x.toUpperCase();
-			});
-	}
-
 	return {
 		plugin: require(plugin),
 		namespace: namespace(plugin),
@@ -30,18 +31,24 @@ function isNotMe(element) {
 	return /posthtml-(?!load-plugins)/.test(element);
 }
 
-exports = module.exports = function (options) {
+exports = module.exports = function (opt, ext) {
 	var pkg = require(appRoot + '/package.json');
 
-	if (typeof options === 'string') {
-		options = require(path.join(process.cwd(), options));
+	if (typeof opt === 'string' && pathExists(path.join(process.cwd(), opt))) {
+		opt = require(path.join(process.cwd(), opt));
 	} else {
-		options = options || pkg.posthtml || {};
+		opt = opt || pkg.posthtml || {};
+	}
+
+	for (var plugin in ext) {
+		if ({}.hasOwnProperty.call(ext, plugin)) {
+			opt[namespace(plugin)] = ext[plugin];
+		}
 	}
 
 	var processors = [];
 
-	Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
+	Object.keys(Object.assign({}, ext, pkg.dependencies, pkg.devDependencies))
 		.sort(function (a, b) {
 			if (/posthtml-include/.test(b)) {
 				return 1;
@@ -57,7 +64,7 @@ exports = module.exports = function (options) {
 	var plugins = [];
 
 	processors.forEach(function (processor) {
-		var namespaceOptions = processor.namespace in options ? options[processor.namespace] : options;
+		var namespaceOptions = processor.namespace in opt ? opt[processor.namespace] : opt;
 		var processorOptions = {};
 
 		Object.keys(processor.defaults).forEach(function (key) {
