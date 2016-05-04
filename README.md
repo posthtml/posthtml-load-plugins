@@ -1,4 +1,4 @@
-[![npm][npm]][npm-url]
+[![npm version][npm]][npm-url]
 [![Dependencies][deps]][deps-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][cover-image]][cover-url]
@@ -160,8 +160,8 @@ posthtml(plugins)
 
 MIT
 
-[npm]:  https://badge.fury.io/js/posthtml-load-plugins.svg
-[npm-url]: https://badge.fury.io/js/posthtml-load-plugins
+[npm]:  https://img.shields.io/npm/v/posthtml-load-plugins.svg
+[npm-url]: https://www.npmjs.com/package/posthtml-load-plugins
 
 [deps]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg
 [deps-url]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins
