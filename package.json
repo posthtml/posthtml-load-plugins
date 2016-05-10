@@ -19,14 +19,14 @@
     "ava-codemods": "^0.2.1",
     "coveralls": "^2.11.9",
     "del": "^2.2.0",
-    "nyc": "^6.4.2",
+    "nyc": "^6.4.4",
     "posthtml": "^0.8.7",
     "posthtml-bem": "^0.2.2",
     "posthtml-each": "^1.0.1",
     "posthtml-include": "^1.1.0",
     "read-pkg": "^1.1.0",
     "temp-write": "^2.1.0",
-    "updtr": "^0.1.10",
+    "updtr": "^0.1.13",
     "xo": "^0.15.0"
   },
   "author": {
