@@ -41,7 +41,7 @@ exports = module.exports = function (opt, ext) {
 	}
 
 	for (var plugin in ext) {
-		if ({}.hasOwnProperty.call(ext, plugin)) {
+		if (ext.hasOwnProperty(plugin)) {
 			opt[namespace(plugin)] = ext[plugin];
 		}
 	}
@@ -67,13 +67,15 @@ exports = module.exports = function (opt, ext) {
 		var namespaceOptions = processor.namespace in opt ? opt[processor.namespace] : opt;
 		var processorOptions = {};
 
-		Object.keys(processor.defaults).forEach(function (key) {
-			processorOptions[key] = processor.defaults[key];
-		});
+		if (typeof namespaceOptions === 'object') {
+			Object.keys(namespaceOptions).forEach(function (key) {
+				processorOptions[key] = namespaceOptions[key];
+			});
+		}
 
-		Object.keys(namespaceOptions).forEach(function (key) {
-			processorOptions[key] = namespaceOptions[key];
-		});
+		if (typeof namespaceOptions === 'string') {
+			processorOptions = namespaceOptions;
+		}
 
 		if (namespaceOptions && !processorOptions.disable) {
 			plugins.push(processor.plugin(processorOptions));
