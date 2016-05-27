@@ -21,6 +21,21 @@ test('Plugin return array', t => {
 	t.true(Array.isArray(plugin()));
 });
 
+test('set array options in plugin should return empty array', t => {
+	const options = [{
+		plugin: 'posthtml-doctype',
+		namespace: 'doctype',
+		defaults: {
+			doctype: 'HTML 5'
+		}
+	}];
+
+	const result = plugin(options);
+
+	t.true(Array.isArray(result));
+	t.falsy(result.length);
+});
+
 test('Plugin reads custom json config from posthtml.json', async t => {
 	t.is(
 		(await read('expected/output-config-pkg.html')),
