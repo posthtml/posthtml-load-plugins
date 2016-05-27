@@ -164,14 +164,14 @@ MIT
 [npm]:  https://img.shields.io/npm/v/posthtml-load-plugins.svg
 [npm-url]: https://www.npmjs.com/package/posthtml-load-plugins
 
-[deps]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins.svg
-[deps-url]: https://david-dm.org/michael-ciniawsky/posthtml-load-plugins
+[deps]: https://david-dm.org/posthtml/posthtml-load-plugins.svg
+[deps-url]: https://david-dm.org/posthtml/posthtml-load-plugins
 
 [style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[style-url]: https://github.com/michael-ciniawsky/posthtml-load-plugins
+[style-url]: https://github.com/posthtml/posthtml-load-plugins
 
-[travis-url]: https://travis-ci.org/michael-ciniawsky/posthtml-load-plugins
-[travis-image]: http://img.shields.io/travis/michael-ciniawsky/posthtml-load-plugins.svg
+[travis-url]: https://travis-ci.org/posthtml/posthtml-load-plugins
+[travis-image]: http://img.shields.io/travis/posthtml/posthtml-load-plugins.svg
 
 [cover-image]:https://coveralls.io/repos/github/michael-ciniawsky/posthtml-load-plugins/badge.svg?branch=master
 [cover-url]:https://coveralls.io/github/michael-ciniawsky/posthtml-load-plugins?branch=master

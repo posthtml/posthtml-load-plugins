@@ -15,7 +15,7 @@ function namespace(plugin) {
 		});
 }
 
-function Processor(plugin) {
+function processor(plugin) {
 	return {
 		plugin: require(plugin),
 		namespace: namespace(plugin),
@@ -48,18 +48,20 @@ exports = module.exports = function (opt, ext) {
 
 	var processors = [];
 
-	Object.keys(Object.assign({}, ext, pkg.dependencies, pkg.devDependencies))
-		.sort(function (a, b) {
-			if (/posthtml-include/.test(b)) {
-				return 1;
-			}
-			return 0;
-		})
-		.filter(isPlugin)
-		.filter(isNotMe)
-		.forEach(function (plugin) {
-			processors.push(new Processor(plugin));
-		});
+	if (typeof opt !== 'string' && !Array.isArray(opt)) {
+		Object.keys(Object.assign({}, ext, pkg.dependencies, pkg.devDependencies))
+			.sort(function (a, b) {
+				if (/posthtml-include/.test(b)) {
+					return 1;
+				}
+				return 0;
+			})
+			.filter(isPlugin)
+			.filter(isNotMe)
+			.forEach(function (plugin) {
+				processors.push(processor(plugin));
+			});
+	}
 
 	var plugins = [];
 
