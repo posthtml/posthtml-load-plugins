@@ -42,11 +42,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-ciniawsky/posthtml-load-plugins.git"
+    "url": "git+https://github.com/posthtml/posthtml-load-plugins.git"
   },
   "bugs": {
-    "url": "https://github.com/michael-ciniawsky/posthtml-load-plugins/issues"
+    "url": "https://github.com/posthtml/posthtml-load-plugins/issues"
   },
-  "homepage": "https://github.com/michael-ciniawsky/posthtml-load-plugins#readme",
+  "homepage": "https://github.com/posthtml/posthtml-load-plugins#readme",
   "license": "MIT"
 }
