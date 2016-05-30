@@ -1,4 +1,3 @@
-
 [![npm version][npm]][npm-url]
 [![Dependencies][deps]][deps-url]
 [![Build Status][travis-image]][travis-url]
@@ -34,26 +33,26 @@ For an example of well formed options file see below.
 ```json
 {
  "dependencies": {
-	 "posthtml-bem": "^0.2.2",
-	 "posthtml-each": "^1.0.1",
-	 "posthtml-include": "^1.0.2"
+     "posthtml-bem": "^0.2.2",
+     "posthtml-each": "^1.0.1",
+     "posthtml-include": "^1.0.2"
  },
  "devDependencies": {
-	 "posthtml-style-to-file": "^0.1.1"
+     "posthtml-style-to-file": "^0.1.1"
  },
  "posthtml": {
-	 "bem": {
-		 "elemPrefix": "__",
-		 "modPrefix": "-",
-		 "modDlmtr": "--"
-	 },
-	 "include": {
-		 "root": "./",
-		 "encoding": "utf-8"
-	 },
-	 "styleToFile": {
-		 "path": "./dist/style.css"
-	 }
+     "bem": {
+         "elemPrefix": "__",
+         "modPrefix": "-",
+         "modDlmtr": "--"
+     },
+     "include": {
+         "root": "./",
+         "encoding": "utf-8"
+     },
+     "styleToFile": {
+         "path": "./dist/style.css"
+     }
  }
 }
 ```
@@ -63,36 +62,36 @@ For an example of well formed options file see below.
 #### JS
 ```js
 module.exports = {
-	bem: {
-		elemPrefix: '__',
-		modPrefix: '-',
-		modDlmtr: '--'
-	},
-	include: {
-		root: './',
-		encoding: 'utf-8'
-	},
-	styleToFile: {
-		path: './dist/style.css'
-	}
+    bem: {
+        elemPrefix: '__',
+        modPrefix: '-',
+        modDlmtr: '--'
+    },
+    include: {
+        root: './',
+        encoding: 'utf-8'
+    },
+    styleToFile: {
+        path: './dist/style.css'
+    }
 }
 ```
 #### JSON
 
 ```json
 {
-	"bem": {
-		"elemPrefix": "__",
-		"modPrefix": "-",
-		"modDlmtr": "--"
-	},
-	"include": {
-		"root": "./",
-		"encoding": "utf-8"
-	},
-	"styleToFile": {
-		"path": "./dist/style.css"
-	}
+    "bem": {
+        "elemPrefix": "__",
+        "modPrefix": "-",
+        "modDlmtr": "--"
+    },
+    "include": {
+        "root": "./",
+        "encoding": "utf-8"
+    },
+    "styleToFile": {
+        "path": "./dist/style.css"
+    }
 }
 ```
 
@@ -113,8 +112,8 @@ const plugins = require('posthtml-load-plugins')()
 let html = fs.readFileSync('./index.html', 'utf8')
 
 posthtml(plugins)
-	.process(html)
-	.then(result => console.log(result.html))
+    .process(html)
+    .then(result => console.log(result.html))
 ```
 
 #### Options file (e.g posthtml.json)
@@ -130,8 +129,8 @@ const plugins = require('posthtml-load-plugins')('posthtml.(js|json)')
 let html = fs.readFileSync('./index.html', 'utf8')
 
 posthtml(plugins)
-	.process(html)
-	.then(result => console.log(result.html))
+    .process(html)
+    .then(result => console.log(result.html))
 ```
 
 #### Extends options
@@ -147,8 +146,8 @@ const plugins = require('posthtml-load-plugins')('posthtml.(js|json)', {"posthtm
 let html = fs.readFileSync('./index.html', 'utf8')
 
 posthtml(plugins)
-	.process(html)
-	.then(result => console.log(result.html))
+    .process(html)
+    .then(result => console.log(result.html))
 ```
 
 ## Contributors
