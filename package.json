@@ -5,9 +5,13 @@
   "engines": {
     "node": ">=4"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": "lib/",
   "scripts": {
     "test": "xo && nyc ava",
+    "clean": "rm -rf lib && mkdir lib",
+    "build": "npm run clean && babel src/ -dir lib/",
+    "prepublish": "npm run build",
     "update": "updtr && ava-codemods --force"
   },
   "dependencies": {
@@ -17,17 +21,44 @@
   "devDependencies": {
     "ava": "^0.15.1",
     "ava-codemods": "^0.2.1",
+    "babel-cli": "^6.6.5",
+    "babel-plugin-add-module-exports": "^0.2.0",
+    "babel-preset-es2015-node6": "^0.2.0",
+    "babel-register": "^6.7.2",
     "coveralls": "^2.11.9",
     "del": "^2.2.0",
     "nyc": "^6.4.4",
     "posthtml": "^0.8.7",
     "posthtml-bem": "^0.2.2",
     "posthtml-each": "^1.0.1",
-    "posthtml-include": "^1.1.0",
+    "posthtml-modules": "^0.1.1",
     "read-pkg": "^1.1.0",
     "temp-write": "^2.1.0",
     "updtr": "^0.1.15",
     "xo": "^0.15.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015-node6"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "posthtml": {
+    "bem": {
+        "elemPrefix": "__",
+        "modPrefix": "--",
+        "modDlmtr": "-"
+    },
+    "styleToFile": {
+        "path": "./dist/css/"
+    }
   },
   "author": {
     "name": "Michael Ciniawky",

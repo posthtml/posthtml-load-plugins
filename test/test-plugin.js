@@ -1,10 +1,7 @@
 const readFile = require('fs').readFile;
 const posthtml = require('posthtml');
 const test = require('ava');
-const plugin = require('../');
-// const tempWrite = require('temp-write');
-// const del = require('del');
-// const pathExists = require('path-exists');
+const plugin = require('../src/index.js');
 
 function read(path) {
 	return new Promise((resolve, reject) => {

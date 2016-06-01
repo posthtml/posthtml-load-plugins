@@ -60,6 +60,7 @@ For an example of well formed options file see below.
 ### [name].[ext]
 
 #### JS
+```
 ```js
 module.exports = {
     bem: {
@@ -75,6 +76,28 @@ module.exports = {
         path: './dist/style.css'
     }
 }
+```
+
+```or```
+
+```js
+module.exports = [
+    {
+        bem: {
+            elemPrefix: '__',
+            modPrefix: '-',
+            modDlmtr: '--'
+        },
+        include: {
+            root: './',
+            encoding: 'utf-8'
+        }
+    }, {
+        styleToFile: {
+            path: './dist/style.css'
+        }
+    }
+]
 ```
 #### JSON
 
@@ -107,11 +130,11 @@ For general usage and build process integration see [PostHTML Docs](https://gith
 const fs = require('fs')
 
 const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')()
+const plugins = require('posthtml-load-plugins')
 
 let html = fs.readFileSync('./index.html', 'utf8')
 
-posthtml(plugins)
+posthtml(plugins([object|array[objects]|file] /* options */, [object|array[objects]|file] /* extends */))
     .process(html)
     .then(result => console.log(result.html))
 ```
@@ -142,6 +165,24 @@ const fs = require('fs')
 
 const posthtml = require('posthtml')
 const plugins = require('posthtml-load-plugins')('posthtml.(js|json)', {"posthtml-bem": {elemPrefix: '__'}})
+
+let html = fs.readFileSync('./index.html', 'utf8')
+
+posthtml(plugins)
+    .process(html)
+    .then(result => console.log(result.html))
+```
+
+#### use with [posthtml-standard-config](https://github.com/StandardHTML/posthtml-standard-config)
+
+```js
+'use strict'
+
+const fs = require('fs')
+
+const posthtml = require('posthtml')
+const standardConfig = require('posthtml-standard-config')
+const plugins = require('posthtml-load-plugins')(standardConfig)
 
 let html = fs.readFileSync('./index.html', 'utf8')
 
