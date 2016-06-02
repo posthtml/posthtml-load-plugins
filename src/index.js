@@ -1,8 +1,4 @@
-// ------------------------------------
-// #POST - LOAD PLUGINS
-// ------------------------------------
-
-'use strict';
+import sequence from 'posthtml-standard-sequence';
 import prepareConfig from './prepare-config.js';
 
 function toKebabCase(plugin) {
@@ -18,7 +14,7 @@ function processor(plugin) {
 }
 
 export default (opt, ext) => {
-	const config = prepareConfig(opt, ext);
+	const config = sequence(prepareConfig(opt, ext));
 
 	return Object.keys(config)
 		.map(plugin => processor(plugin)(config[plugin]));
