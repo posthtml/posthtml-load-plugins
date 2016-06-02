@@ -67,6 +67,9 @@ test('should return with advanced settings from options', t => {
 
 test('should return with advanced settings from array options', t => {
 	const expected = {
+		include: {
+			encoding: 'utf-8'
+		},
 		bem: {
 			elemPrefix: '__',
 			modPrefix: '--',
@@ -76,9 +79,6 @@ test('should return with advanced settings from array options', t => {
 		modules: {},
 		styleToFile: {
 			path: 'dist/style.css'
-		},
-		include: {
-			encoding: 'utf-8'
 		}
 	};
 	const options = [{
