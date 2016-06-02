@@ -1,12 +1,12 @@
 import test from 'ava';
 import generator from '../src/prepare-config.js';
 
-/* test('should retrun object', t => {
+test('should retrun object', t => {
 	t.true(typeof generator() === 'object');
 	t.false(Array.isArray(generator()));
-}); */
+});
 
-test('should return object witch three params from package.json', t => {
+test('should return object witch five params from package.json', t => {
 	const expected = {
 		bem: {
 			elemPrefix: '__',
@@ -14,6 +14,7 @@ test('should return object witch three params from package.json', t => {
 			modDlmtr: '-'
 		},
 		each: {},
+		include: {},
 		modules: {},
 		styleToFile: {
 			path: './dist/css/'
@@ -21,6 +22,24 @@ test('should return object witch three params from package.json', t => {
 	};
 
 	t.deepEqual(expected, generator());
+});
+
+test('should return object witch three params from package.json and not down', t => {
+	const expected = {
+		bem: {
+			elemPrefix: '__',
+			modPrefix: '--',
+			modDlmtr: '-'
+		},
+		each: {},
+		include: {},
+		modules: {},
+		styleToFile: {
+			path: './dist/css/'
+		}
+	};
+
+	t.deepEqual(expected, generator(undefined));
 });
 
 test('should return with advanced settings from options', t => {
@@ -31,6 +50,7 @@ test('should return with advanced settings from options', t => {
 			modDlmtr: '-'
 		},
 		each: {},
+		include: {},
 		modules: {},
 		styleToFile: {
 			path: 'dist/style.css'
@@ -114,7 +134,7 @@ test('should return with advanced settings from files', t => {
 		each: {},
 		modules: {},
 		styleToFile: {
-			path: 'test/dist/style.css'
+			path: 'dist/style.css'
 		},
 		include: {
 			root: 'test/',
