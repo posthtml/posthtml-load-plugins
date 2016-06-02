@@ -213,5 +213,5 @@ MIT
 [travis-url]: https://travis-ci.org/posthtml/posthtml-load-plugins
 [travis-image]: http://img.shields.io/travis/posthtml/posthtml-load-plugins.svg
 
-[cover-image]:https://coveralls.io/repos/github/michael-ciniawsky/posthtml-load-plugins/badge.svg?branch=master
-[cover-url]:https://coveralls.io/github/michael-ciniawsky/posthtml-load-plugins?branch=master
+[cover-image]:https://coveralls.io/repos/github/posthtml/posthtml-load-plugins/badge.svg?branch=master
+[cover-url]:https://coveralls.io/github/posthtml/posthtml-load-plugins?branch=master
