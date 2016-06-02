@@ -6,7 +6,7 @@ module.exports = {
 	},
 	include: {
 		root: './',
-		encoding: 'utf-8'
+		encoding: 'window-1251'
 	},
 	styleToFile: {
 		path: './dist/style.css'
