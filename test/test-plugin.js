@@ -31,3 +31,10 @@ test('test witch posthtml-css-modules', async t => {
 		(await posthtml(plugin('fixtures/modules.json', {'posthtml-css-modules': 'dist/css-modules.json', 'posthtml-each': {}})).process(await read('fixtures/input-modules.html'))).html
 	);
 });
+
+test('should throw not install plugin posthtml-css', async t => {
+	t.is(
+		(await read('expected/output-config-pkg.html')),
+		(await posthtml(plugin('fixtures/posthtml.json', {css: {}})).process(await read('fixtures/input.html'))).html
+	);
+});
