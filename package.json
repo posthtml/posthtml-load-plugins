@@ -1,6 +1,6 @@
 {
   "name": "posthtml-load-plugins",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "Autoload Plugins for PostHTML",
   "engines": {
     "node": ">=6"
@@ -38,6 +38,7 @@
     "posthtml-each": "^1.0.1",
     "posthtml-include": "^1.1.0",
     "posthtml-modules": "^0.1.1",
+    "posthtml-standard-config": "0.0.3",
     "posthtml-style-to-file": "^0.1.1",
     "read-pkg": "^1.1.0",
     "temp-write": "^2.1.0",
