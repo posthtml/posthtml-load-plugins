@@ -13,6 +13,7 @@ test('should return object witch five params from package.json', t => {
 			modPrefix: '--',
 			modDlmtr: '-'
 		},
+		cssModules: {},
 		each: {},
 		include: {},
 		modules: {},
@@ -36,7 +37,8 @@ test('should return object witch three params from package.json and not down', t
 		modules: {},
 		styleToFile: {
 			path: './dist/css/'
-		}
+		},
+		cssModules: {}
 	};
 
 	t.deepEqual(expected, generator(undefined));
@@ -54,7 +56,8 @@ test('should return with advanced settings from options', t => {
 		modules: {},
 		styleToFile: {
 			path: 'dist/style.css'
-		}
+		},
+		cssModules: {}
 	};
 	const options = {
 		styleToFile: {
@@ -79,7 +82,8 @@ test('should return with advanced settings from array options', t => {
 		modules: {},
 		styleToFile: {
 			path: 'dist/style.css'
-		}
+		},
+		cssModules: {}
 	};
 	const options = [{
 		styleToFile: {
@@ -109,7 +113,8 @@ test('should return with advanced settings from array options and second file op
 		include: {
 			root: './',
 			encoding: 'window-1251'
-		}
+		},
+		cssModules: {}
 	};
 	const options = [{
 		styleToFile: {
@@ -139,9 +144,35 @@ test('should return with advanced settings from files', t => {
 		include: {
 			root: 'test/',
 			encoding: 'utf-8'
-		}
+		},
+		cssModules: {}
 	};
 	const options = 'fixtures/posthtml.json';
+
+	t.deepEqual(expected, generator(options));
+});
+
+test('should return with advanced settings from options where options is a string', t => {
+	const expected = {
+		bem: {
+			elemPrefix: '__',
+			modPrefix: '--',
+			modDlmtr: '-'
+		},
+		each: {},
+		include: {},
+		modules: {},
+		styleToFile: {
+			path: 'dist/style.css'
+		},
+		cssModules: 'dist/css-modules.json'
+	};
+	const options = {
+		styleToFile: {
+			path: 'dist/style.css'
+		},
+		cssModules: 'dist/css-modules.json'
+	};
 
 	t.deepEqual(expected, generator(options));
 });

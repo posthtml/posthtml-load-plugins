@@ -44,6 +44,12 @@ export default (...options) => {
 				currentValue = currentValue.reduce((previousValue, currentValue) => Object.assign(previousValue, currentValue), {});
 			}
 
+			if (Array.isArray(currentValue) === false && isFile(currentValue) === false && currentValue !== undefined) {
+				currentValue = Object.keys(currentValue)
+					.map(plugin => (exclude(plugin) ? {[toSnakeCase(plugin)]: currentValue[plugin]} : {[plugin]: currentValue[plugin]}))
+					.reduce((previousValue, currentValue) => Object.assign(previousValue, currentValue), {});
+			}
+
 			return Object.assign(previousValue, currentValue);
 		}, {})
 	);
