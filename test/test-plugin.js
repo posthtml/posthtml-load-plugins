@@ -24,3 +24,10 @@ test('Plugin reads custom json config from posthtml.json', async t => {
 		(await posthtml(plugin('fixtures/posthtml.json')).process(await read('fixtures/input.html'))).html
 	);
 });
+
+test('test witch posthtml-css-modules', async t => {
+	t.is(
+		(await read('expected/output-modules.html')),
+		(await posthtml(plugin('fixtures/modules.json', {'posthtml-css-modules': 'dist/css-modules.json', 'posthtml-each': {}})).process(await read('fixtures/input-modules.html'))).html
+	);
+});
