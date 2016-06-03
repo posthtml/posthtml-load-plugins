@@ -25,6 +25,9 @@ After installing your plugins there a three ways to declare your plugin options.
 - Create a separated ***[name].[ext]*** file, where ***[name]*** is any name you like and ***[ext]*** should be either ``` .js ``` or ``` .json ```.
 For an example of well formed options file see below.
 - For plugins not having rules installed locally will be used default settings.
+- Pretty reporting about not installed plugins.
+
+![](reporting.jpg)
 
 ## Options
 
