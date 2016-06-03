@@ -16,7 +16,7 @@ function processor(plugin, warning) {
 	try {
 		return require(getModuleName(plugin));
 	} catch (e) {
-		warning.push([logSymbols.error, `posthtml-${plugin}`]);
+		warning.push([`    ${logSymbols.error}`, `posthtml-${plugin}`]);
 		return () => {};
 	}
 }
@@ -30,7 +30,7 @@ export default (opt, ext) => {
 
 	if (warning.length) {
 		console.log(`  ${logSymbols.warning} ${chalk.yellow('warning'.toUpperCase())} plugins is not installed`);
-		console.log(`    ${table(warning)}`);
+		console.log(`${table(warning)}`);
 	}
 
 	return plugins;

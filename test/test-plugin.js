@@ -35,6 +35,6 @@ test('test witch posthtml-css-modules', async t => {
 test('should throw not install plugin posthtml-css', async t => {
 	t.is(
 		(await read('expected/output-config-pkg.html')),
-		(await posthtml(plugin('fixtures/posthtml.json', {css: {}})).process(await read('fixtures/input.html'))).html
+		(await posthtml(plugin('fixtures/posthtml.json', {css: {}, postcss: {}})).process(await read('fixtures/input.html'))).html
 	);
 });
