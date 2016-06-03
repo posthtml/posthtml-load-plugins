@@ -139,6 +139,7 @@ posthtml(plugins([object|array[objects]|file] /* options */, [object|array[objec
     .then(result => console.log(result.html))
 ```
 
+
 #### Options file (e.g posthtml.json)
 
 ```js
@@ -155,6 +156,7 @@ posthtml(plugins)
     .process(html)
     .then(result => console.log(result.html))
 ```
+
 
 #### Extends options
 
@@ -173,7 +175,8 @@ posthtml(plugins)
     .then(result => console.log(result.html))
 ```
 
-#### use with [posthtml-standard-config](https://github.com/StandardHTML/posthtml-standard-config)
+
+#### Use with [posthtml-standard-config](https://github.com/StandardHTML/posthtml-standard-config)
 
 ```js
 'use strict'
