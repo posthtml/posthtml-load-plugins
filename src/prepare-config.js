@@ -15,6 +15,10 @@ function isSequence(plugin) {
 	return /posthtml-(?!standard-sequence)/.test(plugin);
 }
 
+function isConfig(plugin) {
+	return /posthtml-(?!standard-config)/.test(plugin);
+}
+
 function toSnakeCase(plugin) {
 	return plugin
 		.slice(9)
@@ -32,6 +36,7 @@ export default (...options) => {
 			.filter(exclude)
 			.filter(isNotMe)
 			.filter(isSequence)
+			.filter(isConfig)
 			.map(toSnakeCase)
 			.reduce((previousValue, currentValue) => Object.assign(previousValue, {[currentValue]: {}}), {}),
 		posthtml,
