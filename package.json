@@ -23,9 +23,9 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "ava": "^0.15.1",
+    "ava": "^0.15.2",
     "ava-codemods": "^0.2.1",
-    "babel-cli": "^6.6.5",
+    "babel-cli": "^6.10.1",
     "babel-plugin-add-module-exports": "^0.2.0",
     "babel-preset-es2015-node": "^6.1.0",
     "babel-register": "^6.7.2",
@@ -38,7 +38,7 @@
     "posthtml-each": "^1.0.1",
     "posthtml-include": "^1.1.0",
     "posthtml-modules": "^0.1.1",
-    "posthtml-standard-config": "0.0.3",
+    "posthtml-standard-config": "0.0.4",
     "posthtml-style-to-file": "^0.1.1",
     "read-pkg": "^1.1.0",
     "temp-write": "^2.1.0",
