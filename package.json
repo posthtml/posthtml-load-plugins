@@ -3,7 +3,7 @@
   "version": "0.11.3",
   "description": "Autoload Plugins for PostHTML",
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "main": "lib/index.js",
   "files": "lib/",
