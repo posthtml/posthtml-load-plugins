@@ -19,6 +19,10 @@ function isConfig(plugin) {
 	return /posthtml-(?!standard-config)/.test(plugin);
 }
 
+function isCLI(plugin) {
+	return /posthtml-(?!cli)/.test(plugin);
+}
+
 function toSnakeCase(plugin) {
 	return plugin
 		.slice(9)
@@ -37,6 +41,7 @@ export default (...options) => {
 			.filter(isNotMe)
 			.filter(isSequence)
 			.filter(isConfig)
+			.filter(isCLI)
 			.map(toSnakeCase)
 			.reduce((previousValue, currentValue) => Object.assign(previousValue, {[currentValue]: {}}), {}),
 		posthtml,
