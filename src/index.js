@@ -4,13 +4,8 @@ import chalk from 'chalk';
 import table from 'text-table';
 import prepareConfig from './prepare-config.js';
 
-function toKebabCase(plugin) {
-	return plugin.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
-}
-
-function getModuleName(plugin) {
-	return `posthtml-${toKebabCase(plugin)}`;
-}
+const toKebabCase = plugin => plugin.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
+const getModuleName = plugin => `posthtml-${toKebabCase(plugin)}`;
 
 function processor(plugin, warning) {
 	try {
