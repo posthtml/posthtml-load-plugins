@@ -30,7 +30,7 @@
     "ava-codemods": "^0.2.1",
     "babel-cli": "^6.10.1",
     "babel-plugin-add-module-exports": "^0.2.0",
-    "babel-preset-es2015-node": "^6.1.0",
+    "babel-preset-es2015": "^6.9.0",
     "babel-register": "^6.7.2",
     "coveralls": "^2.11.9",
     "del": "^2.2.1",
@@ -51,7 +51,7 @@
   },
   "babel": {
     "presets": [
-      "es2015-node"
+      "es2015"
     ],
     "plugins": [
       "add-module-exports"
