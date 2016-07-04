@@ -15,12 +15,12 @@
     "update": "updtr && ava-codemods --force"
   },
   "dependencies": {
-    "app-root-path": "^1.0.0",
+    "app-root-path": "^1.2.1",
     "chalk": "^1.1.3",
     "log-symbols": "^1.0.2",
     "path-exists": "^3.0.0",
-    "posthtml-cli": "^0.2.3",
-    "posthtml-standard-sequence": "0.0.5",
+    "posthtml-cli": "^0.2.4",
+    "posthtml-standard-sequence": "0.0.6",
     "text-table": "^0.2.0"
   },
   "devDependencies": {
@@ -31,21 +31,21 @@
     "babel-preset-es2015-node": "^6.1.0",
     "babel-register": "^6.7.2",
     "coveralls": "^2.11.9",
-    "del": "^2.2.0",
-    "nyc": "^6.4.4",
+    "del": "^2.2.1",
+    "nyc": "^6.6.1",
     "postcss-cli": "^2.5.2",
     "posthtml": "^0.8.7",
     "posthtml-bem": "^0.2.2",
     "posthtml-css-modules": "^0.1.0",
     "posthtml-each": "^1.0.1",
     "posthtml-include": "^1.1.0",
-    "posthtml-modules": "^0.1.1",
-    "posthtml-standard-config": "0.0.4",
+    "posthtml-modules": "^0.4.0",
+    "posthtml-standard-config": "0.0.5",
     "posthtml-style-to-file": "^0.1.1",
     "read-pkg": "^1.1.0",
     "temp-write": "^2.1.0",
-    "updtr": "^0.1.15",
-    "xo": "^0.15.1"
+    "updtr": "^0.2.1",
+    "xo": "^0.16.0"
   },
   "babel": {
     "presets": [
