@@ -3,16 +3,14 @@ const posthtml = require('posthtml');
 const test = require('ava');
 const plugin = require('../src/index.js');
 
-function read(path) {
-	return new Promise((resolve, reject) => {
-		readFile(path, 'utf8', (err, data) => {
-			if (err) {
-				reject(err);
-			}
-			return resolve(data);
-		});
+const read = path => new Promise((resolve, reject) => {
+	readFile(path, 'utf8', (err, data) => {
+		if (err) {
+			reject(err);
+		}
+		return resolve(data);
 	});
-}
+});
 
 test('Plugin return array', t => {
 	t.true(Array.isArray(plugin()));
