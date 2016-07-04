@@ -6,7 +6,9 @@
     "node": ">=4"
   },
   "main": "lib/index.js",
-  "files": "lib/",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "test": "xo src/**/*.js test/**/*.js && nyc ava",
     "clean": "rm -rf lib && mkdir lib",
