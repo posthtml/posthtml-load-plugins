@@ -1,6 +1,7 @@
 import {resolve} from 'path';
 import appRoot from 'app-root-path';
 import pathExists from 'path-exists';
+
 const {dependencies, devDependencies, posthtml} = require(`${appRoot}/package.json`);
 
 function exclude(plugins) {
