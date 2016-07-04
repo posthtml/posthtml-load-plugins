@@ -1,14 +1,13 @@
 import {resolve} from 'path';
 import appRoot from 'app-root-path';
 import pathExists from 'path-exists';
+import blackList from './black-list';
 
 const {dependencies, devDependencies, posthtml} = require(`${appRoot}/package.json`);
+const exclude = plugins => /^posthtml-[\w]/.test(plugins);
+const inBlackList = plugin => !blackList.includes(plugin);
 
-function exclude(plugins) {
-	return /^posthtml-[\w]/.test(plugins);
-}
-
-function isNotMe(plugin) {
+/* function isNotMe(plugin) {
 	return /posthtml-(?!load-plugins)/.test(plugin);
 }
 
@@ -22,7 +21,7 @@ function isConfig(plugin) {
 
 function isCLI(plugin) {
 	return /posthtml-(?!cli)/.test(plugin);
-}
+} */
 
 function toSnakeCase(plugin) {
 	return plugin
@@ -39,10 +38,7 @@ export default (...options) => {
 		{},
 		Object.keys(Object.assign({}, dependencies, devDependencies))
 			.filter(exclude)
-			.filter(isNotMe)
-			.filter(isSequence)
-			.filter(isConfig)
-			.filter(isCLI)
+			.filter(inBlackList)
 			.map(toSnakeCase)
 			.reduce((previousValue, currentValue) => Object.assign(previousValue, {[currentValue]: {}}), {}),
 		posthtml,
