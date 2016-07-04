@@ -3,6 +3,7 @@
 - Added changelog
 - Added #47, babel-preset-min
 - Added #41, black list
+- Added babel plugin array includes
 
 ### Change
 - Update devDep
