@@ -128,73 +128,65 @@ For general usage and build process integration see [PostHTML Docs](https://gith
 #### Default
 
 ```js
-'use strict'
+const fs = require('fs');
 
-const fs = require('fs')
+const posthtml = require('posthtml');
+const plugins = require('posthtml-load-plugins');
 
-const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')
-
-let html = fs.readFileSync('./index.html', 'utf8')
+let html = fs.readFileSync('./index.html', 'utf8');
 
 posthtml(plugins([object|array[objects]|file] /* options */, [object|array[objects]|file] /* extends */))
     .process(html)
-    .then(result => console.log(result.html))
+    .then(result => console.log(result.html));
 ```
 
 
 #### Options file (e.g posthtml.json)
 
 ```js
-'use strict'
+const fs = require('fs');
 
-const fs = require('fs')
+const posthtml = require('posthtml');
+const plugins = require('posthtml-load-plugins')('posthtml.(js|json)');
 
-const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')('posthtml.(js|json)')
-
-let html = fs.readFileSync('./index.html', 'utf8')
+let html = fs.readFileSync('./index.html', 'utf8');
 
 posthtml(plugins)
     .process(html)
-    .then(result => console.log(result.html))
+    .then(result => console.log(result.html));
 ```
 
 
 #### Extends options
 
 ```js
-'use strict'
+const fs = require('fs');
 
-const fs = require('fs')
+const posthtml = require('posthtml');
+const plugins = require('posthtml-load-plugins')('posthtml.(js|json)', {"posthtml-bem": {elemPrefix: '__'}});
 
-const posthtml = require('posthtml')
-const plugins = require('posthtml-load-plugins')('posthtml.(js|json)', {"posthtml-bem": {elemPrefix: '__'}})
-
-let html = fs.readFileSync('./index.html', 'utf8')
+let html = fs.readFileSync('./index.html', 'utf8');
 
 posthtml(plugins)
     .process(html)
-    .then(result => console.log(result.html))
+    .then(result => console.log(result.html));
 ```
 
 
 #### Use with [posthtml-standard-config](https://github.com/StandardHTML/posthtml-standard-config)
 
 ```js
-'use strict'
+const fs = require('fs');
 
-const fs = require('fs')
+const posthtml = require('posthtml');
+const standardConfig = require('posthtml-standard-config');
+const plugins = require('posthtml-load-plugins')(standardConfig);
 
-const posthtml = require('posthtml')
-const standardConfig = require('posthtml-standard-config')
-const plugins = require('posthtml-load-plugins')(standardConfig)
-
-let html = fs.readFileSync('./index.html', 'utf8')
+let html = fs.readFileSync('./index.html', 'utf8');
 
 posthtml(plugins)
     .process(html)
-    .then(result => console.log(result.html))
+    .then(result => console.log(result.html));
 ```
 
 ## Contributors
