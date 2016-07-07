@@ -2,6 +2,7 @@ import sequence from 'posthtml-standard-sequence';
 import logSymbols from 'log-symbols';
 import chalk from 'chalk';
 import table from 'text-table';
+import indentString from 'indent-string';
 import prepareConfig from './prepare-config.js';
 
 const toKebabCase = plugin => plugin.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
@@ -11,7 +12,7 @@ function processor(plugin, warning) {
 	try {
 		return require(getModuleName(plugin));
 	} catch (err) {
-		warning.push([`    ${logSymbols.error}`, `posthtml-${plugin}`]);
+		warning.push(Array.of(indentString(`${logSymbols.error}`, 4), `posthtml-${plugin}`));
 		return () => {};
 	}
 }
@@ -24,7 +25,7 @@ export default (opt, ext) => {
 		.filter(plugin => plugin !== undefined);
 
 	if (warning.length) {
-		console.log(`  ${logSymbols.warning} ${chalk.yellow('warning'.toUpperCase())} plugins is not installed`);
+		console.log(indentString(`${logSymbols.warning} ${chalk.yellow('warning'.toUpperCase())} plugins is not installed`, 2));
 		console.log(`${table(warning)}`);
 	}
 

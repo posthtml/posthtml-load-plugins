@@ -38,6 +38,7 @@
     "clinton": "^0.5.0",
     "coveralls": "^2.11.9",
     "del": "^2.2.1",
+    "indent-string": "^3.0.0",
     "nyc": "^6.6.1",
     "postcss-cli": "^2.5.2",
     "posthtml": "^0.8.7",
@@ -72,7 +73,9 @@
   },
   "clinton": {
     "rules": {
-      "pkg-main": ["off"]
+      "pkg-main": [
+        "off"
+      ]
     }
   },
   "posthtml": {
