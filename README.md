@@ -35,28 +35,28 @@ For an example of well formed options file see below.
 
 ```json
 {
- "dependencies": {
-     "posthtml-bem": "^0.2.2",
-     "posthtml-each": "^1.0.1",
-     "posthtml-include": "^1.0.2"
- },
- "devDependencies": {
-     "posthtml-style-to-file": "^0.1.1"
- },
- "posthtml": {
-     "bem": {
-         "elemPrefix": "__",
-         "modPrefix": "-",
-         "modDlmtr": "--"
-     },
-     "include": {
-         "root": "./",
-         "encoding": "utf-8"
-     },
-     "styleToFile": {
-         "path": "./dist/style.css"
-     }
- }
+    "dependencies": {
+        "posthtml-bem": "^0.2.2",
+        "posthtml-each": "^1.0.1",
+        "posthtml-include": "^1.0.2"
+},
+    "devDependencies": {
+        "posthtml-style-to-file": "^0.1.1"
+},
+    "posthtml": {
+        "bem": {
+            "elemPrefix": "__",
+            "modPrefix": "-",
+            "modDlmtr": "--"
+        },
+        "include": {
+            "root": "./",
+            "encoding": "utf-8"
+        },
+        "styleToFile": {
+            "path": "./dist/style.css"
+        }
+    }
 }
 ```
 
