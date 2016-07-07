@@ -1,3 +1,15 @@
+## [0.12.0] - 07-07-2016
+### Added
+- Added #53, clinton linter project
+
+### Change
+- Change #52, native space to pkg indent-space
+- Change #54, posthtml-standard-sequence to post-sequence
+- Update readme, small linting js section
+
+### Fixed
+- Fixed #53, clinton report error
+
 ## [0.11.6] - 04-07-2016
 ### Added 
 - Added changelog

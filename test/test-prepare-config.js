@@ -18,7 +18,7 @@ test('should return object witch five params from package.json', t => {
 		include: {},
 		modules: {},
 		styleToFile: {
-			path: './dist/css/'
+			path: './dist/styleToFile.css'
 		}
 	};
 
@@ -36,7 +36,7 @@ test('should return object witch three params from package.json and not down', t
 		include: {},
 		modules: {},
 		styleToFile: {
-			path: './dist/css/'
+			path: './dist/styleToFile.css'
 		},
 		cssModules: {}
 	};
