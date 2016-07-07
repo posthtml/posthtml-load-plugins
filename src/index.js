@@ -1,4 +1,4 @@
-import sequence from 'posthtml-standard-sequence';
+import sequence from 'post-sequence';
 import logSymbols from 'log-symbols';
 import chalk from 'chalk';
 import table from 'text-table';
@@ -17,9 +17,9 @@ function processor(plugin, warning) {
 	}
 }
 
-export default (opt, ext) => {
+export default (cfg, extCfg) => {
 	let warning = [];
-	const config = sequence(prepareConfig(opt, ext));
+	const config = sequence(prepareConfig(cfg, extCfg), {processor: 'posthtml'});
 	const plugins = Object.keys(config)
 		.map(plugin => processor(plugin, warning)(config[plugin]))
 		.filter(plugin => plugin !== undefined);

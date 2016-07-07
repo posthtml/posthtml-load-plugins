@@ -22,8 +22,8 @@
     "chalk": "^1.1.3",
     "log-symbols": "^1.0.2",
     "path-exists": "^3.0.0",
+    "post-sequence": "^0.1.0",
     "posthtml-cli": "^0.2.4",
-    "posthtml-standard-sequence": "0.0.6",
     "text-table": "^0.2.0"
   },
   "devDependencies": {
