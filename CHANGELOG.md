@@ -1,4 +1,12 @@
-## [0.12.0] - 07-07-2016
+## [0.11.8] - 08-07-2016
+### Change 
+- Change contributors name
+
+### Fixed
+- Fixed #56, cannot find module indent-string
+- Remove posthtml-cli in dependencies
+
+## [0.11.7] - 07-07-2016
 ### Added
 - Added #53, clinton linter project
 
