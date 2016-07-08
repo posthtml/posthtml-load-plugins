@@ -23,7 +23,6 @@
     "log-symbols": "^1.0.2",
     "path-exists": "^3.0.0",
     "post-sequence": "^0.1.0",
-    "posthtml-cli": "^0.2.4",
     "indent-string": "^3.0.0",
     "text-table": "^0.2.0"
   },
