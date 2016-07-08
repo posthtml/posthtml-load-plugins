@@ -1,6 +1,6 @@
 {
   "name": "posthtml-load-plugins",
-  "version": "0.11.7",
+  "version": "0.11.8",
   "description": "Autoload Plugins for PostHTML",
   "engines": {
     "node": ">=4"
