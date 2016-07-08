@@ -24,6 +24,7 @@
     "path-exists": "^3.0.0",
     "post-sequence": "^0.1.0",
     "posthtml-cli": "^0.2.4",
+    "indent-string": "^3.0.0",
     "text-table": "^0.2.0"
   },
   "devDependencies": {
@@ -38,7 +39,6 @@
     "clinton": "^0.5.0",
     "coveralls": "^2.11.9",
     "del": "^2.2.1",
-    "indent-string": "^3.0.0",
     "nyc": "^6.6.1",
     "postcss-cli": "^2.5.2",
     "posthtml": "^0.9.0",
