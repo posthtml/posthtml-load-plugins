@@ -63,7 +63,6 @@ For an example of well formed options file see below.
 ### [name].[ext]
 
 #### JS
-```
 ```js
 module.exports = {
     bem: {
@@ -80,8 +79,7 @@ module.exports = {
     }
 }
 ```
-
-```or```
+or
 
 ```js
 module.exports = [
